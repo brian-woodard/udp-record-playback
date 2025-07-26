@@ -20,12 +20,13 @@
 #include "PrintData.cpp"
 #include "SimUdpSocket.cpp"
 
-const char* IP_ADDRESS       = "192.168.137.189";
-const char* MY_IP_ADDRESS    = "192.168.137.190";
+const char* IP_ADDRESS       = "192.168.2.128";
+const char* MY_IP_ADDRESS    = "192.168.2.133";
 const char* BASE_MC_ADDRESS  = "229.7.7.0";
 const int   PORT             = 4000;
 const int   NUM_MC_ADDRESSES = 250;
 const int   MAX_BUFFER       = 65536;
+const bool  LOOP_PLAYBACK    = true;
 
 // Set the following settings to ensure traffic is recorded
 // Also, make sure the PORT is allowed through the firewall
@@ -212,7 +213,7 @@ void playback(const char* Directory)
 
       printf("Opening socket %s:%d\n", playback_files[i].from_mc.c_str(), PORT);
       CSimUdpSocket* socket = new CSimUdpSocket();
-      socket->Open(playback_files[i].from_mc.c_str(), PORT, PORT);
+      socket->Open(playback_files[i].from_mc.c_str(), PORT, 55432);
       socket->SetMultiCast(MY_IP_ADDRESS);
       socket->JoinMcastGroup(playback_files[i].from_mc.c_str(), MY_IP_ADDRESS);
       socket->SetTtl(32);
@@ -244,7 +245,45 @@ void playback(const char* Directory)
       }
 
       if (all_zeros)
-         break;
+      {
+         if (LOOP_PLAYBACK)
+         {
+            CSimTimer::GetCurrentTimeStr(time_str);
+            printf("\n%s: Looping...\n\n", time_str);
+
+            start_time = 0.0;
+
+            // Reset all files
+            buffers.clear();
+            for (int i = 0; i < playback_files.size(); i++)
+            {
+               TPlaybackBuffer buffer;
+               std::string     filename = Directory;
+               filename += "/";
+               filename += playback_files[i].filename;
+                              
+               input_files[i].clear();
+               input_files[i].seekg(0, std::ios::beg);
+
+               // Read first buffer out of each file
+               input_files[i].read((char*)&buffer.time, sizeof(buffer.time));
+               input_files[i].read((char*)&buffer.bytes, sizeof(buffer.bytes));
+               input_files[i].read(buffer.buffer, buffer.bytes);
+
+               if (buffer.time < start_time || start_time == 0.0)
+                  start_time = buffer.time;
+
+               buffers.emplace_back(buffer);
+            }
+
+            next_playback_time = start_time;
+            real_start_time = CSimTimer::GetCurrentTime();
+         }
+         else
+         {
+            break;
+         }
+      }
 
       // Look over playback buffers and see if it's time to send
       for (int i = 0; i < buffers.size(); i++)

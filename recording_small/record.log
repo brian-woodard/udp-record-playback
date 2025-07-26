@@ -1,0 +1,73 @@
+ain     Makefile  PrintData.cpp            README.md    SimTimer.cpp  SimUdpSocket.cpp  ten_capture.pcapng
+[sim@MRT-host udp-record-playback]$ mkdir recording_small
+[sim@MRT-host udp-record-playback]$ ./main 
+07:51:55.565571: Recording traffic on 229.7.7.0:4000, from .1-.250
+07:52:13.669085: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+Opening file file_192.168.137.129_229.7.7.1.bin
+07:52:15.672710: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:17.591846: Got message from 192.168.137.129 (229.7.7.1) bytes 105
+07:52:17.593107: Got message from 192.168.137.129 (229.7.7.1) bytes 130
+07:52:17.598540: Got message from 192.168.137.129 (229.7.7.100) bytes 148
+Opening file file_192.168.137.129_229.7.7.100.bin
+07:52:17.599536: Got message from 192.168.137.129 (229.7.7.2) bytes 1448
+07:52:17.599580: Got message from 192.168.137.129 (229.7.7.2) bytes 1448
+07:52:17.599828: Got message from 192.168.137.129 (229.7.7.2) bytes 1448
+07:52:17.600130: Got message from 192.168.137.129 (229.7.7.2) bytes 1448
+07:52:17.600235: Got message from 192.168.137.129 (229.7.7.2) bytes 1448
+07:52:17.600785: Got message from 192.168.137.129 (229.7.7.2) bytes 1448
+Opening file file_192.168.137.129_229.7.7.2.bin
+07:52:17.602786: Got message from 192.168.137.129 (229.7.7.2) bytes 1016
+07:52:17.602807: Got message from 192.168.137.129 (229.7.7.2) bytes 1448
+07:52:17.602866: Got message from 192.168.137.129 (229.7.7.2) bytes 1448
+07:52:17.675618: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:17.695766: Got message from 192.168.137.129 (229.7.7.45) bytes 65
+07:52:17.695870: Got message from 192.168.137.129 (229.7.7.53) bytes 66
+Opening file file_192.168.137.129_229.7.7.45.bin
+Opening file file_192.168.137.129_229.7.7.53.bin
+07:52:17.835556: Got message from 192.168.137.129 (229.7.7.49) bytes 66
+Opening file file_192.168.137.129_229.7.7.49.bin
+07:52:19.666066: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:21.675199: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:22.702471: Got message from 192.168.137.129 (229.7.7.1) bytes 130
+07:52:22.702588: Got message from 192.168.137.129 (229.7.7.57) bytes 88
+Opening file file_192.168.137.129_229.7.7.57.bin
+07:52:22.712725: Got message from 192.168.137.129 (229.7.7.45) bytes 65
+07:52:22.734729: Got message from 192.168.137.129 (229.7.7.218) bytes 62
+07:52:22.735315: Got message from 192.168.137.129 (229.7.7.237) bytes 62
+Opening file file_192.168.137.129_229.7.7.218.bin
+Opening file file_192.168.137.129_229.7.7.237.bin
+07:52:23.671140: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:25.674475: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:27.666278: Got message from 192.168.137.129 (229.7.7.1) bytes 170
+07:52:27.707927: Got message from 192.168.137.129 (229.7.7.53) bytes 66
+07:52:27.737889: Got message from 192.168.137.129 (229.7.7.45) bytes 65
+07:52:27.758329: Got message from 192.168.137.129 (229.7.7.218) bytes 62
+07:52:27.758462: Got message from 192.168.137.129 (229.7.7.237) bytes 62
+07:52:29.673155: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:31.672820: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:32.714658: Got message from 192.168.137.129 (229.7.7.1) bytes 130
+07:52:32.754438: Got message from 192.168.137.129 (229.7.7.45) bytes 65
+07:52:32.805006: Got message from 192.168.137.129 (229.7.7.218) bytes 62
+07:52:32.805101: Got message from 192.168.137.129 (229.7.7.237) bytes 62
+07:52:33.671460: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:35.674587: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:37.674913: Got message from 192.168.137.129 (229.7.7.1) bytes 170
+07:52:37.704078: Got message from 192.168.137.129 (229.7.7.57) bytes 88
+07:52:37.704171: Got message from 192.168.137.129 (229.7.7.53) bytes 66
+07:52:37.778940: Got message from 192.168.137.129 (229.7.7.45) bytes 65
+07:52:37.838324: Got message from 192.168.137.129 (229.7.7.218) bytes 62
+07:52:37.838443: Got message from 192.168.137.129 (229.7.7.237) bytes 62
+07:52:39.672997: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:41.666678: Got message from 192.168.137.129 (229.7.7.1) bytes 58
+07:52:42.739082: Got message from 192.168.137.129 (229.7.7.1) bytes 130
+07:52:42.799505: Got message from 192.168.137.129 (229.7.7.45) bytes 65
+07:52:42.870258: Got message from 192.168.137.129 (229.7.7.218) bytes 62
+07:52:42.870385: Got message from 192.168.137.129 (229.7.7.237) bytes 62
+07:52:47.704332: Got message from 192.168.137.129 (229.7.7.53) bytes 66
+07:52:47.743991: Got message from 192.168.137.129 (229.7.7.1) bytes 130
+07:52:47.829740: Got message from 192.168.137.129 (229.7.7.45) bytes 65
+07:52:47.906906: Got message from 192.168.137.129 (229.7.7.218) bytes 62
+07:52:47.907041: Got message from 192.168.137.129 (229.7.7.237) bytes 62
+^C
+07:52:50.219115: 57 packets recorded to 9 files
+Exiting...

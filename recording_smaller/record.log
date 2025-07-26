@@ -1,0 +1,190 @@
+[sim@MRT-host udp-record-playback]$ ./main 
+18:03:01.190624: Recording traffic on 229.7.7.0:4000, from .1-.250
+18:03:01.811064: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:01.811993: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+Opening file file_192.168.2.128_229.7.7.4.bin
+18:03:01.813102: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+Opening file file_192.168.2.128_229.7.7.5.bin
+Opening file file_192.168.2.128_229.7.7.9.bin
+18:03:01.841229: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+Opening file file_192.168.2.128_229.7.7.1.bin
+18:03:01.879092: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:01.879332: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:01.879437: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+Opening file file_192.168.2.130_229.7.7.4.bin
+Opening file file_192.168.2.130_229.7.7.5.bin
+Opening file file_192.168.2.130_229.7.7.9.bin
+18:03:02.596870: Got message from 192.168.2.130 (229.7.7.57) bytes 88
+Opening file file_192.168.2.130_229.7.7.57.bin
+18:03:02.675544: Got message from 192.168.2.130 (229.7.7.1) bytes 130
+Opening file file_192.168.2.130_229.7.7.1.bin
+18:03:02.892522: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:02.893035: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:02.893187: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:02.993984: Got message from 192.168.2.130 (229.7.7.53) bytes 66
+Opening file file_192.168.2.130_229.7.7.53.bin
+18:03:03.613406: Got message from 192.168.2.130 (229.7.7.45) bytes 65
+Opening file file_192.168.2.130_229.7.7.45.bin
+18:03:03.805322: Got message from 192.168.2.128 (229.7.7.3) bytes 50
+18:03:03.805535: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:03.805804: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:03.806070: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+Opening file file_192.168.2.128_229.7.7.3.bin
+18:03:03.845187: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:03.886591: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:03.887066: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:03.887218: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:04.801142: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:04.801465: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:04.801892: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:04.897486: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:04.897776: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:04.897882: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:05.841770: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:05.895115: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:05.895422: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:05.895580: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:06.802510: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:06.803035: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:06.803193: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:06.898380: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:06.898605: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:06.898968: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:07.681980: Got message from 192.168.2.130 (229.7.7.1) bytes 130
+18:03:07.850259: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:07.910648: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:07.911063: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:07.911209: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:08.697184: Got message from 192.168.2.130 (229.7.7.45) bytes 65
+18:03:08.805687: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:08.806248: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:08.806424: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:08.908451: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:08.908960: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:08.909118: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:09.843149: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:09.909415: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:09.909647: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:09.909875: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:10.803631: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:10.803973: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:10.804054: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:10.909886: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:10.910204: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:10.910371: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:11.851167: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:11.926083: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:11.927222: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:11.927472: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:12.692479: Got message from 192.168.2.130 (229.7.7.1) bytes 130
+18:03:12.806487: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:12.806986: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:12.807137: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:12.935600: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:12.936092: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:12.936271: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:13.036822: Got message from 192.168.2.130 (229.7.7.53) bytes 66
+18:03:13.767350: Got message from 192.168.2.130 (229.7.7.45) bytes 65
+18:03:13.850724: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:13.934432: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:13.934622: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:13.934934: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:14.809975: Got message from 192.168.2.128 (229.7.7.3) bytes 50
+18:03:14.810203: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:14.810339: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:14.810478: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:14.935787: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:14.937536: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:14.937940: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:15.842385: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:15.952497: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:15.953000: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:15.953187: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:16.804231: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:16.804439: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:16.804552: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:16.938826: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:16.939406: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:16.939536: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:17.614445: Got message from 192.168.2.130 (229.7.7.57) bytes 88
+18:03:17.708849: Got message from 192.168.2.130 (229.7.7.1) bytes 130
+18:03:17.841021: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:17.953748: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:17.954122: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:17.954238: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:18.811704: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:18.812207: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:18.812411: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:18.855738: Got message from 192.168.2.130 (229.7.7.45) bytes 65
+18:03:18.976028: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:18.976224: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:18.976367: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:19.842788: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:19.958816: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:19.959055: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:19.959177: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:20.804858: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:20.805091: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:20.805186: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:20.957965: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:20.958308: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:20.958423: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:21.847794: Got message from 192.168.2.128 (229.7.7.1) bytes 58
+18:03:21.976253: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:21.976492: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:21.976910: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:22.710265: Got message from 192.168.2.130 (229.7.7.1) bytes 130
+18:03:22.803864: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:22.804367: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:22.804496: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:22.987565: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:22.987831: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:22.987927: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:23.088372: Got message from 192.168.2.130 (229.7.7.53) bytes 66
+18:03:23.928835: Got message from 192.168.2.130 (229.7.7.45) bytes 65
+18:03:23.983055: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:23.983312: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:23.984154: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:24.802223: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:24.804143: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:24.804384: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:24.996615: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:24.997210: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:24.997375: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:25.808105: Got message from 192.168.2.128 (229.7.7.3) bytes 50
+18:03:25.808389: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:25.808511: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:25.808636: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:25.991497: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:25.992042: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:25.992229: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:26.806012: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:26.806290: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:26.806412: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:27.004677: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:27.005212: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:27.005379: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:27.723641: Got message from 192.168.2.130 (229.7.7.1) bytes 130
+18:03:28.009095: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:28.009345: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:28.009464: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:28.808707: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:28.809176: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:28.809288: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:28.949451: Got message from 192.168.2.130 (229.7.7.45) bytes 65
+18:03:29.008878: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:29.009153: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:29.009277: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:29.806017: Got message from 192.168.2.128 (229.7.7.4) bytes 86
+18:03:29.806293: Got message from 192.168.2.128 (229.7.7.5) bytes 147
+18:03:29.806423: Got message from 192.168.2.128 (229.7.7.9) bytes 120
+18:03:30.017263: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:30.017486: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:30.017597: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+18:03:31.021103: Got message from 192.168.2.130 (229.7.7.4) bytes 133
+18:03:31.021329: Got message from 192.168.2.130 (229.7.7.5) bytes 135
+18:03:31.021444: Got message from 192.168.2.130 (229.7.7.9) bytes 120
+^C
+18:03:31.025598: 172 packets recorded to 12 files
+Exiting...
+
