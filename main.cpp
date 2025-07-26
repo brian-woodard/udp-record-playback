@@ -50,12 +50,9 @@ struct TBuffer
 
 struct TThreadData
 {
-   int write_index;
-   int read_index;
-   int count;
-   int running;
-   TBuffer data[2];
-   std::mutex thread_mutex;
+   std::vector<TBuffer> data;
+   std::mutex           thread_mutex;
+   int                  running;
 };
 
 struct TPlaybackFile
@@ -218,6 +215,7 @@ void playback(const char* Directory)
       socket->Open(playback_files[i].from_mc.c_str(), PORT, PORT);
       socket->SetMultiCast(MY_IP_ADDRESS);
       socket->JoinMcastGroup(playback_files[i].from_mc.c_str(), MY_IP_ADDRESS);
+      socket->SetTtl(32);
 
       sockets.push_back(socket);
    }
@@ -226,6 +224,7 @@ void playback(const char* Directory)
 
    double next_playback_time = start_time;
    double real_start_time = CSimTimer::GetCurrentTime();
+   char   time_str[50] = {};
 
    while (playback_running)
    {
@@ -234,12 +233,17 @@ void playback(const char* Directory)
       double next_time = start_time + delta;
 
       // Check if playback is still running
+      bool all_zeros = true;
       for (int i = 0; i < buffers.size(); i++)
       {
-         playback_running |= (buffers[i].bytes > 0);
+         if (buffers[i].bytes > 0)
+         {
+            all_zeros = false;
+            break;
+         }
       }
 
-      if (!playback_running)
+      if (all_zeros)
          break;
 
       // Look over playback buffers and see if it's time to send
@@ -247,7 +251,9 @@ void playback(const char* Directory)
       {
          if (next_time >= buffers[i].time && buffers[i].bytes > 0)
          {
-            printf("Sending %d bytes to %s\n", buffers[i].bytes, playback_files[i].from_mc.c_str());
+            CSimTimer::GetCurrentTimeStr(time_str);
+            printf("%s: Sending message to %s bytes %d\n", time_str, playback_files[i].from_mc.c_str(), buffers[i].bytes);
+            total_packets_recorded++;
             sockets[i]->SendToSocket(buffers[i].buffer, buffers[i].bytes);
 
             if (!input_files[i].eof())
@@ -268,6 +274,7 @@ void playback(const char* Directory)
       usleep(500);
    }
 
+   printf("%d packets played back\n", total_packets_recorded);
    printf("\nExiting...\n");
 }
 
@@ -315,15 +322,15 @@ void record_thread()
 
       if (bytes > 0)
       {
-         thread_data.count++;
-         thread_data.data[thread_data.write_index].from_ip = from_ip;
-         thread_data.data[thread_data.write_index].from_mc = from_mc;
-         thread_data.data[thread_data.write_index].bytes   = bytes;
-         thread_data.data[thread_data.write_index].time    = CSimTimer::GetCurrentTime();
-         memcpy(thread_data.data[thread_data.write_index].buffer, buffer, bytes);
+         TBuffer data;
 
-         thread_data.read_index  = thread_data.write_index;
-         thread_data.write_index = 1 - thread_data.write_index;
+         data.from_ip = from_ip;
+         data.from_mc = from_mc;
+         data.bytes   = bytes;
+         data.time    = CSimTimer::GetCurrentTime();
+         memcpy(data.buffer, buffer, bytes);
+
+         thread_data.data.emplace_back(data);
       }
 
       thread_data.thread_mutex.unlock();
@@ -333,7 +340,7 @@ void record_thread()
 int main(int argc, char* argv[])
 {
    char time_str[50] = {};
-   bool          record = (argc == 1);
+   bool record = (argc == 1);
 
    if (argc > 2)
    {
@@ -341,19 +348,20 @@ int main(int argc, char* argv[])
       return 1;
    }
 
+   // disable buffering
+   setvbuf(stdout, NULL, _IONBF, 0);
+
    signal(SIGINT, int_handler);
 
-   thread_data.write_index = 0;
-   thread_data.read_index = 0;
-   thread_data.count = 0;
+   thread_data.data.clear();
    thread_data.running = 1;
 
    if (record)
    {
-      std::thread record(record_thread);
-      bool        running = true;
-      int         prev_count = 0;
-      TBuffer     local_buffer;
+      std::vector<TBuffer> local_data;
+      std::thread          record(record_thread);
+      bool                 running = true;
+      int                  prev_count = 0;
 
       // make hash map to store file streams
       std::unordered_map<std::string, std::ofstream> streams;
@@ -367,41 +375,52 @@ int main(int argc, char* argv[])
 
          running = thread_data.running;
 
-         if (thread_data.count != prev_count)
+         if (thread_data.data.size() > 0)
          {
-            prev_count           = thread_data.count;
-            local_buffer.from_ip = thread_data.data[thread_data.read_index].from_ip;
-            local_buffer.from_mc = thread_data.data[thread_data.read_index].from_mc;
-            local_buffer.bytes   = thread_data.data[thread_data.read_index].bytes;
-            local_buffer.time    = thread_data.data[thread_data.read_index].time;
-            memcpy(local_buffer.buffer, thread_data.data[thread_data.read_index].buffer, local_buffer.bytes);
+            for (int i = 0; i < thread_data.data.size(); i++)
+            {
+               TBuffer data;
+
+               data.from_ip = thread_data.data[i].from_ip;
+               data.from_mc = thread_data.data[i].from_mc;
+               data.bytes   = thread_data.data[i].bytes;
+               data.time    = thread_data.data[i].time;
+               memcpy(data.buffer, thread_data.data[i].buffer, data.bytes);
+
+               local_data.emplace_back(data);
+            }
+
+            thread_data.data.clear();
          }
 
          thread_data.thread_mutex.unlock();
 
-         if (local_buffer.bytes > 0)
+         for (int i = 0; i < local_data.size(); i++)
          {
-            std::string filename = "file_";
-            filename += local_buffer.from_ip;
-            filename += "_";
-            filename += local_buffer.from_mc;
-            filename += ".bin";
-
-            if (streams.find(filename) == streams.end())
+            if (local_data[i].bytes > 0)
             {
-               // open file
-               printf("Opening file %s\n", filename.c_str());
-               std::ofstream file(filename, std::ios::binary);
-               streams[filename] = std::move(file);
+               std::string filename = "file_";
+               filename += local_data[i].from_ip;
+               filename += "_";
+               filename += local_data[i].from_mc;
+               filename += ".bin";
+
+               if (streams.find(filename) == streams.end())
+               {
+                  // open file
+                  printf("Opening file %s\n", filename.c_str());
+                  std::ofstream file(filename, std::ios::binary);
+                  streams[filename] = std::move(file);
+               }
+
+               // write data to file
+               streams[filename].write((const char*)&local_data[i].time, sizeof(local_data[i].time));
+               streams[filename].write((const char*)&local_data[i].bytes, sizeof(local_data[i].bytes));
+               streams[filename].write(local_data[i].buffer, local_data[i].bytes);
             }
-
-            // write data to file
-            streams[filename].write((const char*)&local_buffer.time, sizeof(local_buffer.time));
-            streams[filename].write((const char*)&local_buffer.bytes, sizeof(local_buffer.bytes));
-            streams[filename].write(local_buffer.buffer, local_buffer.bytes);
-
-            local_buffer.bytes = 0;
          }
+
+         local_data.clear();
 
          usleep(1000);
       }
