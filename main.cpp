@@ -218,6 +218,7 @@ void playback(const char* Directory)
       socket->Open(playback_files[i].from_mc.c_str(), PORT, PORT);
       socket->SetMultiCast(MY_IP_ADDRESS);
       socket->JoinMcastGroup(playback_files[i].from_mc.c_str(), MY_IP_ADDRESS);
+      socket->SetTtl(32);
 
       sockets.push_back(socket);
    }
@@ -234,12 +235,17 @@ void playback(const char* Directory)
       double next_time = start_time + delta;
 
       // Check if playback is still running
+      bool all_zeros = true;
       for (int i = 0; i < buffers.size(); i++)
       {
-         playback_running |= (buffers[i].bytes > 0);
+         if (buffers[i].bytes > 0)
+         {
+            all_zeros = false;
+            break;
+         }
       }
 
-      if (!playback_running)
+      if (all_zeros)
          break;
 
       // Look over playback buffers and see if it's time to send
@@ -248,6 +254,7 @@ void playback(const char* Directory)
          if (next_time >= buffers[i].time && buffers[i].bytes > 0)
          {
             printf("Sending %d bytes to %s\n", buffers[i].bytes, playback_files[i].from_mc.c_str());
+            total_packets_recorded++;
             sockets[i]->SendToSocket(buffers[i].buffer, buffers[i].bytes);
 
             if (!input_files[i].eof())
@@ -268,6 +275,7 @@ void playback(const char* Directory)
       usleep(500);
    }
 
+   printf("%d packets played back\n", total_packets_recorded);
    printf("\nExiting...\n");
 }
 
